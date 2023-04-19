@@ -24,6 +24,13 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public void createUser(User user) {
+        String userEmail = user.getEmail();
+        String userPhone = user.getPhone();
+
+        if (!isEmailValid(userEmail))
+            throw new RuntimeException("Email is not in a valid format");
+        if (!isPhoneValid(userPhone))
+            throw new RuntimeException("Phone number is not in a valid format");
         userRepository.save(user);
     }
 
