@@ -3,6 +3,7 @@ package bzngymapi.bzngym.models.abstracts;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -21,9 +22,7 @@ public abstract class AbstractEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    private LocalDate creationDate;
+    private LocalDate creationDate = LocalDate.now();
 
-    private LocalDate updatedDate;
-
-    //private LocalDate deleteDate;
+    private LocalDate updatedDate = LocalDate.now();
 }
