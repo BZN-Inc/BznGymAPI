@@ -19,10 +19,10 @@ import java.time.LocalDate;
 @Getter
 public class User extends AbstractEntity {
 
-    @Column(name = "firstName")
+    @Column(name = "firstName", nullable = false)
     private String firstName;
 
-    @Column(name = "lastName")
+    @Column(name = "lastName", nullable = false)
     private String lastName;
 
     @Column(name = "address")
@@ -31,24 +31,23 @@ public class User extends AbstractEntity {
     @Column(name = "phone")
     private String phone;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "birthDay")
+    @Column(name = "birthDay", nullable = false)
     private LocalDate birthDay;
 
     @Column(name = "trainingType")
     @Enumerated(EnumType.STRING)
-    private trainingType trainingType;
+    private trainingType trainingType = bzngymapi.bzngym.models.enums.trainingType.BEGINNER;
 
-    @Column(name = "gender")
+    @Column(name = "gender", nullable = false)
     @Enumerated(EnumType.STRING)
     private gender gender;
 
-    @Column(name = "weight")
+    @Column(name = "weight", nullable = false)
     private Double weight;
 
-    @Column(name = "height")
+    @Column(name = "height", nullable = false)
     private Double height;
-
 }
