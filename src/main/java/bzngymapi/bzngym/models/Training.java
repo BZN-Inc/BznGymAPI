@@ -3,11 +3,14 @@ package bzngymapi.bzngym.models;
 import bzngymapi.bzngym.models.abstracts.AbstractEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "trainings")
@@ -17,17 +20,21 @@ import lombok.experimental.SuperBuilder;
 @Getter
 public class Training extends AbstractEntity {
 
-    @Column(name = "title")
+    @OneToMany(mappedBy = "training")
+    @Column(name = "exercises", nullable = false)
+    private Set<Exercise> exercises; // Set este o colectie neordonata de obiecte unice
+
+    @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "duration")
+    @Column(name = "duration", nullable = false)
     private Integer duration;
 
-    @Column(name = "content")
+    @Column(name = "content", nullable = false)
     private String content;
 
     @Column(name = "backgroundImg")
-    private String backgroundImg;
+    private String backgroundImg; // URL type
 
     @Column(name = "color")
     private String color;

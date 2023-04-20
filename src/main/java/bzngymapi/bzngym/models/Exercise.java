@@ -1,9 +1,7 @@
 package bzngymapi.bzngym.models;
 
 import bzngymapi.bzngym.models.abstracts.AbstractEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +16,11 @@ import lombok.experimental.SuperBuilder;
 @Getter
 public class Exercise extends AbstractEntity {
 
-    @Column(name = "firstName", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "training_id") // nullable = false
+    private Training training;
+
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "setNumber", nullable = false)
@@ -30,6 +32,6 @@ public class Exercise extends AbstractEntity {
     @Column(name = "pauseTime", nullable = false)
     private Integer pauseTime;
 
-    @Column(name = "image", nullable = false)
+    @Column(name = "image")
     private String image; //URL type
 }
