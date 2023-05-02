@@ -4,7 +4,7 @@ import bzngymapi.bzngym.models.User;
 
 import java.util.List;
 
-public interface IUserService {
+public interface UserService {
 
     public List<User> getUsers();
 

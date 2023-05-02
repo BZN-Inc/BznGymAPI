@@ -2,14 +2,14 @@ package bzngymapi.bzngym.services.implementations;
 
 import bzngymapi.bzngym.models.User;
 import bzngymapi.bzngym.repositories.UserRepository;
-import bzngymapi.bzngym.services.interfaces.IUserService;
+import bzngymapi.bzngym.services.interfaces.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.regex.Pattern;
 
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 

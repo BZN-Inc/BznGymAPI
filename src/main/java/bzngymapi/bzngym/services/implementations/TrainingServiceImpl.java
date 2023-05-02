@@ -2,13 +2,13 @@ package bzngymapi.bzngym.services.implementations;
 
 import bzngymapi.bzngym.models.Training;
 import bzngymapi.bzngym.repositories.TrainingRepository;
-import bzngymapi.bzngym.services.interfaces.ITrainingService;
+import bzngymapi.bzngym.services.interfaces.TrainingService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class TrainingServiceImpl implements ITrainingService {
+public class TrainingServiceImpl implements TrainingService {
 
     private final TrainingRepository trainingRepository;
 

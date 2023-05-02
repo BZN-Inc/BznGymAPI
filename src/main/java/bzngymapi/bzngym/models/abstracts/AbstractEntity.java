@@ -3,7 +3,6 @@ package bzngymapi.bzngym.models.abstracts;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
 import java.util.UUID;

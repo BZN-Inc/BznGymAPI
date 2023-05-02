@@ -8,15 +8,15 @@ import java.util.Optional;
 
 @Getter
 @AllArgsConstructor
-public enum gender {
+public enum Gender {
 
     MALE("male"),
     FEMALE("female");
 
     private final String type;
 
-    public static Optional<gender> getGenderByFieldString(String field) {
-        return Arrays.stream(gender.values())
+    public static Optional<Gender> getGenderByFieldString(String field) {
+        return Arrays.stream(Gender.values())
                 .filter(genderElement -> genderElement.type.equals(field))
                 .findAny();
     }

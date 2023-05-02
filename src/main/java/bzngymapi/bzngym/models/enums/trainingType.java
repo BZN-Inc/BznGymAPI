@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Getter
 @AllArgsConstructor
-public enum trainingType {
+public enum TrainingType {
 
     BEGINNER("beginner"),
     INTERMEDIATE("intermediate"),
@@ -17,8 +17,8 @@ public enum trainingType {
 
     private final String type;
 
-    public static Optional<trainingType> getTrainingTypeByFieldString(String field) {
-        return Arrays.stream(trainingType.values())
+    public static Optional<TrainingType> getTrainingTypeByFieldString(String field) {
+        return Arrays.stream(TrainingType.values())
                 .filter(trainingTypeElement -> trainingTypeElement.type.equals(field))
                 .findAny();
     }

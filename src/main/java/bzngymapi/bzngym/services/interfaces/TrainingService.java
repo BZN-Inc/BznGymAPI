@@ -4,7 +4,7 @@ import bzngymapi.bzngym.models.Training;
 
 import java.util.List;
 
-public interface ITrainingService {
+public interface TrainingService {
 
     public List<Training> getTrainings();
 
