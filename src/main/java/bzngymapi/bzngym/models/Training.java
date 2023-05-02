@@ -1,10 +1,7 @@
 package bzngymapi.bzngym.models;
 
 import bzngymapi.bzngym.models.abstracts.AbstractEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +20,10 @@ public class Training extends AbstractEntity {
     @OneToMany(mappedBy = "training")
     @Column(name = "exercises", nullable = false)
     private Set<Exercise> exercises; // Set este o colectie neordonata de obiecte unice
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column(name = "title", nullable = false)
     private String title;

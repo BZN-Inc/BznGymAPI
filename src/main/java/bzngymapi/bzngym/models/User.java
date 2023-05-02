@@ -5,6 +5,7 @@ import bzngymapi.bzngym.models.enums.Gender;
 import bzngymapi.bzngym.models.enums.Role;
 import bzngymapi.bzngym.models.enums.TrainingType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,6 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -66,6 +68,10 @@ public class User extends AbstractEntity implements UserDetails {
     @Enumerated(EnumType.STRING)
     @JsonIgnore
     private Role role = Role.USER;
+
+    @OneToMany(mappedBy = "user")
+    @Column(name = "trainings")
+    private Set<Training> trainings;
 
     @Override
     @JsonIgnore
