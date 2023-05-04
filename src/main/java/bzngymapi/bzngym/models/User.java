@@ -34,18 +34,18 @@ public class User extends AbstractEntity implements UserDetails {
     @Column(name = "lastName", nullable = false)
     private String lastName;
 
-    @Column(name = "address")
-    private String address;
-
-    @Column(name = "phone")
-    private String phone;
-
     @Column(name = "email", nullable = false)
     private String email;
 
     @Column(name = "password", nullable = false)
     @JsonIgnore
     private String password;
+
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "phone")
+    private String phone;
 
     @Column(name = "birthDay", nullable = false)
     private LocalDate birthDay;

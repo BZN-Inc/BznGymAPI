@@ -9,7 +9,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.random.RandomGenerator;
 
 @Data
 @Builder
@@ -24,6 +23,7 @@ public class RegisterRequest {
     private String address;
     private String phone;
     private LocalDate birthDay;
+    private TrainingType trainingType;
     private Gender gender;
     private Double weight;
     private Double height;

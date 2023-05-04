@@ -29,6 +29,7 @@ public class AuthenticationService {
                 .address(request.getAddress())
                 .phone(request.getPhone())
                 .birthDay(request.getBirthDay())
+                .trainingType(request.getTrainingType())
                 .gender(request.getGender())
                 .weight(request.getWeight())
                 .height(request.getHeight())

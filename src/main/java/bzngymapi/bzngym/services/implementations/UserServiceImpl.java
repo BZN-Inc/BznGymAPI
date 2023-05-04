@@ -3,19 +3,17 @@ package bzngymapi.bzngym.services.implementations;
 import bzngymapi.bzngym.models.User;
 import bzngymapi.bzngym.repositories.UserRepository;
 import bzngymapi.bzngym.services.interfaces.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.regex.Pattern;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @Override
     public List<User> getUsers() {
