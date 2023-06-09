@@ -3,9 +3,12 @@ package bzngymapi.bzngym.controllers;
 import bzngymapi.bzngym.models.Training;
 import bzngymapi.bzngym.services.implementations.TrainingServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.UUID;
 
 
 @RestController
@@ -23,5 +26,25 @@ public class TrainingController {
     @PostMapping
     public void createTraining(@RequestBody Training training) {
         trainingService.createTraining(training);
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<String> updateTraining(@PathVariable UUID id, @RequestBody Training updatedTraining) {
+        try {
+            trainingService.updateTraining(id, updatedTraining);
+            return ResponseEntity.ok("The training has been updated successfully!");
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<String> deleteTraining(@PathVariable UUID id) {
+        try {
+            trainingService.deleteTraining(id);
+            return ResponseEntity.ok("The training has been deleted successfully!");
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
