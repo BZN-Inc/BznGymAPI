@@ -3,9 +3,12 @@ package bzngymapi.bzngym.controllers;
 import bzngymapi.bzngym.models.User;
 import bzngymapi.bzngym.services.implementations.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(path = "/bzngym/v1/users")
@@ -22,5 +25,25 @@ public class UserController {
     @PostMapping
     public void createUser(@RequestBody User user) {
         userService.createUser(user);
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<String> updateUser(@PathVariable UUID id, @RequestBody User updatedUser) {
+        try {
+            userService.updateUser(id, updatedUser);
+            return ResponseEntity.ok("The user has been updated successfully!");
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable UUID id) {
+        try {
+            userService.deleteUser(id);
+            return ResponseEntity.ok("The user has been deleted successfully!");
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
